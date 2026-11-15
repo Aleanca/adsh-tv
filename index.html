@@ -741,7 +741,7 @@ footer a:hover{color:#fff}
         <div class="tv-set">
           <div class="tv-bezel">
             <div class="tv-screen">
-              <video id="tvMainVideo" src="intro.mp4" muted autoplay playsinline controls preload="metadata" style="width:100%;aspect-ratio:16/9;border:0;display:block;background:#000;"></video>
+              <iframe id="tvLivePlayer" src="https://www.youtube-nocookie.com/embed/_sXJzAfHEd4?autoplay=1&amp;mute=1&amp;rel=0" title="ALERON-CHANNEL.TV — Transmetim live" style="width:100%;aspect-ratio:16/9;border:0;display:block;background:#000;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
               
               <div class="tv-glare" aria-hidden="true"></div>
               <span class="osd live-pill osd-live"><i aria-hidden="true"></i>Live</span>
@@ -751,7 +751,7 @@ footer a:hover{color:#fff}
             <div class="tv-chin">
               <span class="tv-brand">ALERON-CHANNEL.<em>TV</em></span>
               <span class="tv-model">Kanali kryesor · CH 01</span>
-              <span class="tv-status"><span class="pwr" aria-hidden="true"></span><span data-program-short>Intro — Kodi Shqiptar</span></span>
+              <span class="tv-status"><span class="pwr" aria-hidden="true"></span><span data-program-short>Transmetim live</span></span>
             </div>
           </div>
           <div class="tv-neck" aria-hidden="true"></div>
@@ -764,7 +764,7 @@ footer a:hover{color:#fff}
           <a class="ch-btn" href="#/podcast"><span class="ch-num">CH 04</span>Podkasti Kodi Shqiptar</a>
         </div>
       </div>
-      <p class="screen-note">Transmetim live në këtë ekran — videot e kanalit tonë luajnë pa ndalesë: himni, introja dhe intervistat. Zëri është i fikur si parazgjedhje — prekeni ikonën e zërit te playeri. Podkasti <strong>Kodi Shqiptar</strong> ka profilin e tij të veçantë: <a href="#/podcast" style="color:#ff9d8a">hapni profilin e podkastit</a>.</p>
+      <p class="screen-note">Transmetim live në këtë ekran — lajme, sport, dokumentarë, koncerte me muzikë e valle dhe filma realë, me alternim sipas orarit. Zëri është i fikur si parazgjedhje — prekeni ikonën e zërit te playeri. Podkasti <strong>Kodi Shqiptar</strong> ka profilin e tij të veçantë: <a href="#/podcast" style="color:#ff9d8a">hapni profilin e podkastit</a>.</p>
 
       <div class="program">
         <h3>Sot në Albanian TV</h3>
@@ -792,7 +792,7 @@ footer a:hover{color:#fff}
         <div class="program-row">
           <div>
             <b>Transmetimi live</b>
-            <p>Videot e kanalit luajnë pa ndalesë — himni, introja dhe intervistat tona, drejtpërdrejt nga studioja e Asamblesë.</p>
+            <p>Lajme, sport, dokumentarë, koncerte dhe filma realë, me alternim sipas orarit — drejtpërdrejt nga studioja e Asamblesë.</p>
           </div>
           <span class="pr-state">Live</span>
         </div>
@@ -1726,40 +1726,42 @@ footer a:hover{color:#fff}
 (function(){
   function pad(n){ return (n < 10 ? '0' : '') + n; }
   function tiranaNow(){ try{ return new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Tirane'})); }catch(e){ return new Date(); } }
-  var PLAYLIST = [
-    {file:'intro.mp4', title:'Intro — Kodi Shqiptar'},
-    {file:'himni.mp4', title:'Himni i Asamblesë'},
-    {file:'bledi-tola.mp4', title:'Intervista me Bledi Tolën'}
-  ];
-  var playIdx = 0;
-  function showPlaying(){
-    var p = PLAYLIST[playIdx].title;
-    var a = document.querySelectorAll('[data-program]');
-    for(var x = 0; x < a.length; x++) a[x].textContent = 'Tani: ' + p;
-    var b = document.querySelectorAll('[data-program-short]');
-    for(var y = 0; y < b.length; y++) b[y].textContent = p;
+  var BLOCKS = {
+    lajme: {name:'Lajmet e ditës', videos:['_sXJzAfHEd4','4WoSVMU6iw4','WFlbeLAY49M','BhiPl3o_00I','zOnH3PkBpb8']},
+    lajmeFinal: {name:'Lajmet e ditës — edicioni final', videos:['_sXJzAfHEd4','4WoSVMU6iw4','WFlbeLAY49M','BhiPl3o_00I','zOnH3PkBpb8']},
+    sport: {name:'Sporti', videos:['vL0dTg95Wss','m7NnZOwh320','_UGbN5UbMFM']},
+    dok: {name:'Dokumentarë', videos:['l6Hj8qge2BA','PPRFlAZtNrk','tzg13JyKCZg','qBavaHPzmyA','Wy0lz9d1dOA','bvcb8EYxsjg']},
+    nate: {name:'Filma dhe koncerte shqiptare', videos:['9vAlRRDGknQ','vUfUe4vI844','R1simYFvQQY','bjOwqHeZ9Y0','w-wi5OFPf58','FD07ep95eho','mfkuHzoEvHk','sAEte2QoQ_I','Pu0pH5BuCPM','pWJjYoqVSjQ','kw0YhiqOPFg']}
+  };
+  function blockFor(d){
+    var h = d.getHours();
+    if(h === 8 || h === 12 || h === 15) return 'lajme';
+    if(h === 20) return 'lajmeFinal';
+    if((h >= 9 && h < 12) || (h >= 16 && h < 20)) return 'sport';
+    if(h >= 13 && h < 15) return 'dok';
+    return 'nate';
   }
-  function playIdxFn(i){
-    playIdx = i % PLAYLIST.length;
-    var v = document.getElementById('tvMainVideo');
-    if(!v) return;
-    if(v.getAttribute('src') !== PLAYLIST[playIdx].file) v.setAttribute('src', PLAYLIST[playIdx].file);
-    showPlaying();
-    var pr = v.play();
-    if(pr && pr.catch) pr.catch(function(){});
+  var currentBlock = '';
+  function setPlayer(key){
+    if(key === currentBlock) return;
+    currentBlock = key;
+    var f = document.getElementById('tvLivePlayer');
+    if(!f) return;
+    var v = BLOCKS[key].videos;
+    var src = 'https://www.youtube-nocookie.com/embed/' + v[0] + '?playlist=' + v.join(',') + '&loop=1&autoplay=1&mute=1&rel=0';
+    if(f.getAttribute('src') !== src) f.setAttribute('src', src);
   }
   function tick(){
     var d = tiranaNow();
     var t = pad(d.getHours()) + ':' + pad(d.getMinutes());
     var els = document.querySelectorAll('[data-clock]');
     for(var i = 0; i < els.length; i++) els[i].textContent = t;
+    var key = blockFor(d);
+    var p = BLOCKS[key].name;
+    var b = document.querySelectorAll('[data-program-short]');
+    for(var y = 0; y < b.length; y++) b[y].textContent = p;
+    setPlayer(key);
   }
-  var _tv = document.getElementById('tvMainVideo');
-  if(_tv){
-    _tv.addEventListener('ended', function(){ playIdxFn(playIdx + 1); });
-    showPlaying();
-  }
-  tick();
   setInterval(tick, 20000);
 
   var btns = document.querySelectorAll('.ch-btn');
