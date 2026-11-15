@@ -449,10 +449,12 @@ body.tv-full .tv-set .tv-neck, body.tv-full .tv-set .tv-base, body.tv-full .tv-c
   <span class="t-label"><i aria-hidden="true"></i>Të fundit</span>
   <div class="ticker-viewport">
     <div class="ticker-track" id="tickerTrack">
-      <span><b>TIRANË</b> — Protestat studentore arrijnë ditën 24: kalendar i ri kombëtar, çdo të mërkurë e të shtunë ora 14:00 •</span>
-      <span><b>HIMNI</b> — “Zëri i Diasporës”, himni zyrtar i Asamblesë, me video dhe tekst shqip •</span>
-      <span><b>PODKASTI</b> — Kodi Shqiptar: intervista dhe analiza me shqiptarë nga mbarë bota •</span>
-      <span><b>ZYRTARE</b> — Faqja e Asamblesë është www.adsh-tv.org · Kontakt: kontakt@adsh-tv.org •</span>
+      <span><b>PROTESTA</b> — Bilanci i 14 nëntorit: 3 të arrestuar, 18 të proceduar, 44 gjoba •</span>
+      <span><b>PS</b> — Rama kërkon përjashtimin e Spiropalit dhe Ndrecës; Majko kundër •</span>
+      <span><b>SPORT</b> — Shqipëria–Bjellorusia sot 18:00 në Budapest; barazimi mjafton për vendin e parë •</span>
+      <span><b>MARATONA</b> — Luiza Gega fitoi Maratonën e Tiranës, 42 km për 2:35:35 •</span>
+      <span><b>ELBASAN</b> — Tre të arrestuar për tritolin ndaj makinës së punonjëses së Bashkisë •</span>
+      <span><b>TIRANË</b> — 17-vjeçar i arrestuar me pushkë dhe 140 fishekë •</span>
     </div>
   </div>
 </div>
@@ -826,8 +828,15 @@ body.tv-full .tv-set .tv-neck, body.tv-full .tv-set .tv-base, body.tv-full .tv-c
         </div>
         <div class="program-row">
           <div>
+            <b>Emisioni i mëngjesit · 07:00–08:00</b>
+            <p>Çdo mëngjes, emision mëngjesi live nga televizionet shqiptare — Aldo Morning Show (TV Klan), ABC e Mëngjesit, Mirëmëngjesi Kosovë (RTK) dhe Koha për t'u zgjuar (News24).</p>
+          </div>
+          <span class="pr-state">Live</span>
+        </div>
+        <div class="program-row">
+          <div>
             <b>Transmetimi live</b>
-            <p>Lajme, ekonomi, sport, dokumentarë, koncerte dhe filma realë, me alternim sipas orarit — drejtpërdrejt nga studioja e Asamblesë.</p>
+            <p>Emision mëngjesi, lajme, ekonomi, sport, dokumentarë, koncerte dhe filma realë, me alternim sipas orarit — drejtpërdrejt nga studioja e Asamblesë.</p>
           </div>
           <span class="pr-state">Live</span>
         </div>
@@ -1771,6 +1780,7 @@ body.tv-full .tv-set .tv-neck, body.tv-full .tv-set .tv-base, body.tv-full .tv-c
     sport: {name:'Sporti', videos:['O5p0Sq249Ho','44pKzsIZ1bc','rCE0gc-YWAc','Q3qGQSqzRHI','lELgljp2E-w','vsqn9y06z-M','8ge2gG1Fa9w']},
     dok: {name:'Dokumentarë', videos:['_H1TixG3Chg','hrRDKGDf2OQ','tzg13JyKCZg','qBavaHPzmyA','Wy0lz9d1dOA','bvcb8EYxsjg','3vsoGJPMV9o','y6UkEm8tpG0','2aMZ7y6ivSg','OA7uWcFTF2U']},
     ekonomi: {name:'Ekonomi', videos:['z6rWNfME5bg','ApaIJbJ87qE','-u6rnTXjCUQ','o7ig9DE2FvE','Wz_beyXl5vM']},
+    mengjes: {name:'Emisioni i mëngjesit', videos:['R4-ZBWFcLXc','PdAM0qUjU10','u5-ZHb8TG98','2YVd-Wn0OlY','6aS26m7dCPk']},
     nate: {name:'Filma dhe koncerte shqiptare', videos:['fq7Q-dtIZeM','KgVcfmbfnhg','ErSKnOcU3f8','HMzYdUTa1qU','Xzn_71fpTS8','w-wi5OFPf58','FD07ep95eho','mfkuHzoEvHk','ADwS7VqWhO4','11R4XZdk-VI','xisilpXtYvs','CkKv3domhCo','36oqiuAdqbA','ho8xzy_NvaU','sAEte2QoQ_I','d2X6e38bI4w','Tsp-0QUbAqE','e1t1dlQZD3I','Pu0pH5BuCPM','pWJjYoqVSjQ','kw0YhiqOPFg','nb_fFj_0rq8','sEgPQ7HKoBA']}
   };
   function blockFor(d){
@@ -1780,6 +1790,7 @@ body.tv-full .tv-set .tv-neck, body.tv-full .tv-set .tv-base, body.tv-full .tv-c
     if((h >= 9 && h < 12) || (h >= 16 && h < 20)) return 'sport';
     if(h === 13) return 'dok';
     if(h === 14) return 'ekonomi';
+    if(h === 7) return 'mengjes';
     return 'nate';
   }
   var player = null, playerReady = false, started = false, currentBlock = '', currentIdx = 0, errCount = 0, seekDone = false, pendingResume = null;
