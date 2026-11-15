@@ -390,6 +390,13 @@ footer a:hover{color:#fff}
 .tv-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:10px 4px 2px}
 .tv-ctl{appearance:none;border:1px solid #3d3d41;background:#1d1d20;color:#fff;font-weight:700;font-size:.85rem;padding:8px 12px;border-radius:8px;cursor:pointer}
 .tv-ctl:hover{background:#2a2a2e}
+
+body.tv-full{overflow:hidden}
+body.tv-full .tv-set{position:fixed;inset:0;z-index:9999;background:#000;max-width:none;margin:0;border-radius:0}
+body.tv-full .tv-set .tv-bezel{border:0;border-radius:0;padding:0;box-shadow:none;height:100%;display:flex;flex-direction:column;background:#000}
+body.tv-full .tv-set .tv-screen{aspect-ratio:auto;flex:1;min-height:0;border-radius:0}
+body.tv-full .tv-set .tv-chin, body.tv-full .tv-set .tv-controls{padding:10px 14px;background:#000;flex:none}
+body.tv-full .tv-set .tv-neck, body.tv-full .tv-set .tv-base, body.tv-full .tv-channels{display:none}
 </style>
 </head>
 <body>
@@ -1859,14 +1866,54 @@ footer a:hover{color:#fff}
     if(player.isMuted()) player.unMute(); else player.mute();
     setMuteBtn();
   });
+  function setFullBtn(inFull){
+    var b = document.getElementById('tvFullBtn');
+    if(b) b.textContent = inFull ? '✕ Dil nga ekrani i plotë' : '⛶ Ekrani i plotë';
+  }
+  function tvSetEl(){
+    var p = document.getElementById('tvLivePlayer');
+    return p ? p.closest('.tv-set') : null;
+  }
+  function toggleFullscreen(){
+    var wrap = tvSetEl();
+    if(!wrap) return;
+    if(document.body.classList.contains('tv-full')){
+      document.body.classList.remove('tv-full');
+      setFullBtn(false);
+      return;
+    }
+    if(document.fullscreenElement || document.webkitFullscreenElement){
+      if(document.exitFullscreen) document.exitFullscreen();
+      else if(document.webkitExitFullscreen) document.webkitExitFullscreen();
+      return;
+    }
+    var isIPhone = /iPhone|iPod/.test(navigator.userAgent);
+    if(isIPhone){
+      document.body.classList.add('tv-full');
+      setFullBtn(true);
+      return;
+    }
+    var p = null, usedNative = false;
+    try{
+      if(wrap.requestFullscreen){ p = wrap.requestFullscreen(); usedNative = true; }
+      else if(wrap.webkitRequestFullscreen){ wrap.webkitRequestFullscreen(); usedNative = true; }
+    }catch(e){ usedNative = false; }
+    if(usedNative){
+      if(p && p.catch){
+        p.catch(function(){
+          document.body.classList.add('tv-full');
+          setFullBtn(true);
+        });
+      }
+    } else {
+      document.body.classList.add('tv-full');
+      setFullBtn(true);
+    }
+  }
   var _fullBtn = document.getElementById('tvFullBtn');
-  if(_fullBtn) _fullBtn.addEventListener('click', function(){
-    var el = document.getElementById('tvLivePlayer');
-    el = el ? el.parentElement : null;
-    if(!el) return;
-    if(el.requestFullscreen) el.requestFullscreen();
-    else if(el.webkitRequestFullscreen) el.webkitRequestFullscreen();
-  });
+  if(_fullBtn) _fullBtn.addEventListener('click', toggleFullscreen);
+  document.addEventListener('fullscreenchange', function(){ setFullBtn(!!document.fullscreenElement); });
+  document.addEventListener('webkitfullscreenchange', function(){ setFullBtn(!!document.webkitFullscreenElement); });
   function tick(){
     var d = tiranaNow();
     var t = pad(d.getHours()) + ':' + pad(d.getMinutes());
