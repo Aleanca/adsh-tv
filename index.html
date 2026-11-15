@@ -741,7 +741,7 @@ footer a:hover{color:#fff}
         <div class="tv-set">
           <div class="tv-bezel">
             <div class="tv-screen">
-              <iframe id="tvLivePlayer" src="https://www.youtube-nocookie.com/embed/mUX1wFxiBq4?playlist=mUX1wFxiBq4,IxY9KjTpVvE&amp;loop=1&amp;autoplay=1&amp;mute=1&amp;rel=0" title="ALERON-CHANNEL.TV — Transmetim live" style="width:100%;aspect-ratio:16/9;border:0;display:block;background:#000;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              <iframe id="tvLivePlayer" src="https://www.youtube-nocookie.com/embed/IxY9KjTpVvE?playlist=IxY9KjTpVvE&amp;loop=1&amp;autoplay=1&amp;mute=1&amp;rel=0" title="ALERON-CHANNEL.TV — Transmetim live" style="width:100%;aspect-ratio:16/9;border:0;display:block;background:#000;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
               <span class="osd osd-lower"><span class="lt-kicker">Tani në transmetim</span><span class="lt-text" data-program>Tani: Lajmet e ditës</span></span>
               <div class="tv-glare" aria-hidden="true"></div>
               <span class="osd live-pill osd-live"><i aria-hidden="true"></i>Live</span>
@@ -764,7 +764,7 @@ footer a:hover{color:#fff}
           <a class="ch-btn" href="#/podcast"><span class="ch-num">CH 04</span>Podkasti Kodi Shqiptar</a>
         </div>
       </div>
-      <p class="screen-note">Transmetim live në këtë ekran — himni dhe introja e kanalit luajnë pa ndalesë, si një televizion i vërtetë. Zëri është i fikur si parazgjedhje — prekeni ikonën e zërit te playeri. Podkasti <strong>Kodi Shqiptar</strong> ka profilin e tij të veçantë: <a href="#/podcast" style="color:#ff9d8a">hapni profilin e podkastit</a>.</p>
+      <p class="screen-note">Transmetim live në këtë ekran — video reale sipas programit: lajme, sport, dokumentarë, koncerte me muzikë e valle dhe trailera filmash, si një televizion i vërtetë. Zëri është i fikur si parazgjedhje — prekeni ikonën e zërit te playeri. Podkasti <strong>Kodi Shqiptar</strong> ka profilin e tij të veçantë: <a href="#/podcast" style="color:#ff9d8a">hapni profilin e podkastit</a>.</p>
 
       <div class="program">
         <h3>Sot në Albanian TV</h3>
@@ -792,7 +792,7 @@ footer a:hover{color:#fff}
         <div class="program-row">
           <div>
             <b>Transmetimi live</b>
-            <p>Himni dhe introja e kanalit luajnë pa ndalesë — lajme, emisione dhe intervista drejtpërdrejt nga studioja e Asamblesë.</p>
+            <p>Video reale sipas programit — lajme, sport, dokumentarë, koncerte dhe filma, drejtpërdrejt nga studioja e Asamblesë.</p>
           </div>
           <span class="pr-state">Live</span>
         </div>
@@ -1726,23 +1726,44 @@ footer a:hover{color:#fff}
 (function(){
   function pad(n){ return (n < 10 ? '0' : '') + n; }
   function tiranaNow(){ try{ return new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Tirane'})); }catch(e){ return new Date(); } }
-  function programNow(d){
+  var BLOCKS = {
+    lajme: {name:'Lajmet e ditës', videos:['IxY9KjTpVvE','_sXJzAfHEd4','4WoSVMU6iw4','WFlbeLAY49M','BhiPl3o_00I','zOnH3PkBpb8']},
+    lajmeFinal: {name:'Lajmet e ditës — edicioni final', videos:['IxY9KjTpVvE','_sXJzAfHEd4','4WoSVMU6iw4','WFlbeLAY49M','BhiPl3o_00I','zOnH3PkBpb8']},
+    sport: {name:'Sporti', videos:['IxY9KjTpVvE','vL0dTg95Wss','m7NnZOwh320','_UGbN5UbMFM']},
+    dok: {name:'Dokumentarë', videos:['IxY9KjTpVvE','l6Hj8qge2BA','PPRFlAZtNrk','tzg13JyKCZg','qBavaHPzmyA','Wy0lz9d1dOA','bvcb8EYxsjg']},
+    nate: {name:'Filma dhe koncerte shqiptare', videos:['IxY9KjTpVvE','mUX1wFxiBq4','9vAlRRDGknQ','vUfUe4vI844','R1simYFvQQY','bjOwqHeZ9Y0','w-wi5OFPf58','FD07ep95eho','mfkuHzoEvHk','NCPPlLT7iQw','sAEte2QoQ_I','Pu0pH5BuCPM','pWJjYoqVSjQ','kw0YhiqOPFg']}
+  };
+  function blockFor(d){
     var t = d.getHours()*60 + d.getMinutes();
-    if((t>=480&&t<540)||(t>=720&&t<780)||(t>=900&&t<960)) return 'Lajmet e ditës';
-    if(t>=1200&&t<1260) return 'Lajmet e ditës — edicioni final';
-    if(t>=1260||t<480) return 'Filma dhe koncerte shqiptare';
-    return 'Sporti';
+    if(t>=480&&t<540) return 'lajme';
+    if(t>=540&&t<720) return 'sport';
+    if(t>=720&&t<780) return 'lajme';
+    if(t>=780&&t<900) return 'dok';
+    if(t>=900&&t<960) return 'lajme';
+    if(t>=960&&t<1200) return 'sport';
+    if(t>=1200&&t<1260) return 'lajmeFinal';
+    return 'nate';
+  }
+  var currentBlock = '';
+  function setPlayer(key){
+    if(key === currentBlock) return;
+    currentBlock = key;
+    var v = BLOCKS[key].videos;
+    var f = document.getElementById('tvLivePlayer');
+    if(f) f.src = 'https://www.youtube-nocookie.com/embed/' + v[0] + '?playlist=' + v.join(',') + '&loop=1&autoplay=1&mute=1&rel=0';
   }
   function tick(){
     var d = tiranaNow();
     var t = pad(d.getHours()) + ':' + pad(d.getMinutes());
     var els = document.querySelectorAll('[data-clock]');
     for(var i = 0; i < els.length; i++) els[i].textContent = t;
-    var p = programNow(d);
+    var key = blockFor(d);
+    var p = BLOCKS[key].name;
     var a = document.querySelectorAll('[data-program]');
     for(var x = 0; x < a.length; x++) a[x].textContent = 'Tani: ' + p;
     var b = document.querySelectorAll('[data-program-short]');
     for(var y = 0; y < b.length; y++) b[y].textContent = p;
+    setPlayer(key);
   }
   tick();
   setInterval(tick, 20000);
