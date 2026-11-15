@@ -376,6 +376,20 @@ footer a:hover{color:#fff}
 .cat-chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
 .cat-chips a{border:1px solid var(--line-strong);color:var(--ink);text-decoration:none;font-family:"Libre Franklin",sans-serif;font-weight:700;padding:9px 16px;border-radius:999px;font-size:.92rem}
 .cat-chips a:hover{background:var(--red);border-color:var(--red);color:#fff}
+
+.tv-screen{aspect-ratio:16/9}
+.tv-screen #tvLivePlayer{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+.tv-screen #tvLivePlayer iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;background:#000}
+.tv-screen .osd{z-index:7}
+.tv-clickshield{position:absolute;inset:0;z-index:5;cursor:pointer}
+.tv-facade{position:absolute;inset:0;z-index:6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:radial-gradient(ellipse at center,#1c1c21 0%,#050506 72%);cursor:pointer;text-align:center;padding:16px}
+.tv-facade-play{display:flex;align-items:center;justify-content:center;width:76px;height:76px;border-radius:50%;background:var(--red);color:#fff;font-size:30px;box-shadow:0 10px 30px rgba(0,0,0,.6)}
+.tv-facade-title{color:#fff;font-family:"Libre Franklin",sans-serif;font-weight:900;letter-spacing:.14em;font-size:1.05rem}
+.tv-facade-block{color:#ffb9a6;font-weight:800;font-size:.9rem;letter-spacing:.06em}
+.tv-facade-sub{color:#cfcfc9;font-size:.9rem;font-weight:600}
+.tv-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:10px 4px 2px}
+.tv-ctl{appearance:none;border:1px solid #3d3d41;background:#1d1d20;color:#fff;font-weight:700;font-size:.85rem;padding:8px 12px;border-radius:8px;cursor:pointer}
+.tv-ctl:hover{background:#2a2a2e}
 </style>
 </head>
 <body>
@@ -741,7 +755,14 @@ footer a:hover{color:#fff}
         <div class="tv-set">
           <div class="tv-bezel">
             <div class="tv-screen">
-              <iframe id="tvLivePlayer" src="https://www.youtube-nocookie.com/embed/_sXJzAfHEd4?autoplay=1&amp;mute=1&amp;rel=0" title="ALERON-CHANNEL.TV — Transmetim live" style="width:100%;aspect-ratio:16/9;border:0;display:block;background:#000;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              <div id="tvLivePlayer"></div>
+              <div class="tv-facade" id="tvFacade" role="button" tabindex="0" aria-label="Luaj kanalin">
+                <span class="tv-facade-play" aria-hidden="true">▶</span>
+                <span class="tv-facade-title">ALERON-CHANNEL.TV</span>
+                <span class="tv-facade-block" data-program-short>Transmetim live</span>
+                <span class="tv-facade-sub">Shtyp Play — zëri del këtu në website</span>
+              </div>
+              <div class="tv-clickshield" id="tvClickShield" aria-hidden="true"></div>
               
               <div class="tv-glare" aria-hidden="true"></div>
               <span class="osd live-pill osd-live"><i aria-hidden="true"></i>Live</span>
@@ -752,6 +773,11 @@ footer a:hover{color:#fff}
               <span class="tv-brand">ALERON-CHANNEL.<em>TV</em></span>
               <span class="tv-model">Kanali kryesor · CH 01</span>
               <span class="tv-status"><span class="pwr" aria-hidden="true"></span><span data-program-short>Transmetim live</span></span>
+            </div>
+            <div class="tv-controls">
+              <button type="button" class="tv-ctl" id="tvPlayBtn">▶ Luaj</button>
+              <button type="button" class="tv-ctl" id="tvMuteBtn">🔊 Zëri ndezur</button>
+              <button type="button" class="tv-ctl" id="tvFullBtn">⛶ Ekrani i plotë</button>
             </div>
           </div>
           <div class="tv-neck" aria-hidden="true"></div>
@@ -764,7 +790,7 @@ footer a:hover{color:#fff}
           <a class="ch-btn" href="#/podcast"><span class="ch-num">CH 04</span>Podkasti Kodi Shqiptar</a>
         </div>
       </div>
-      <p class="screen-note">Transmetim live në këtë ekran — lajme, sport, dokumentarë, koncerte me muzikë e valle dhe filma realë, me alternim sipas orarit. Zëri është i fikur si parazgjedhje — prekeni ikonën e zërit te playeri. Podkasti <strong>Kodi Shqiptar</strong> ka profilin e tij të veçantë: <a href="#/podcast" style="color:#ff9d8a">hapni profilin e podkastit</a>.</p>
+      <p class="screen-note">Transmetim live në këtë ekran — lajme, sport, dokumentarë, koncerte me muzikë e valle dhe filma realë, me alternim sipas orarit. Shtypni Play — kanali luan këtu në website, me zë, pa dalë askund. Podkasti <strong>Kodi Shqiptar</strong> ka profilin e tij të veçantë: <a href="#/podcast" style="color:#ff9d8a">hapni profilin e podkastit</a>.</p>
 
       <div class="program">
         <h3>Sot në Albanian TV</h3>
@@ -1731,7 +1757,7 @@ footer a:hover{color:#fff}
     lajmeFinal: {name:'Lajmet e ditës — edicioni final', videos:['_sXJzAfHEd4','4WoSVMU6iw4','WFlbeLAY49M','BhiPl3o_00I','zOnH3PkBpb8']},
     sport: {name:'Sporti', videos:['vL0dTg95Wss','m7NnZOwh320','_UGbN5UbMFM']},
     dok: {name:'Dokumentarë', videos:['l6Hj8qge2BA','PPRFlAZtNrk','tzg13JyKCZg','qBavaHPzmyA','Wy0lz9d1dOA','bvcb8EYxsjg']},
-    nate: {name:'Filma dhe koncerte shqiptare', videos:['9vAlRRDGknQ','vUfUe4vI844','R1simYFvQQY','bjOwqHeZ9Y0','w-wi5OFPf58','FD07ep95eho','mfkuHzoEvHk','sAEte2QoQ_I','Pu0pH5BuCPM','pWJjYoqVSjQ','kw0YhiqOPFg']}
+    nate: {name:'Filma dhe koncerte shqiptare', videos:['vUfUe4vI844','R1simYFvQQY','bjOwqHeZ9Y0','w-wi5OFPf58','FD07ep95eho','mfkuHzoEvHk','sAEte2QoQ_I','Pu0pH5BuCPM','pWJjYoqVSjQ','kw0YhiqOPFg']}
   };
   function blockFor(d){
     var h = d.getHours();
@@ -1741,26 +1767,118 @@ footer a:hover{color:#fff}
     if(h >= 13 && h < 15) return 'dok';
     return 'nate';
   }
-  var currentBlock = '';
-  function setPlayer(key){
-    if(key === currentBlock) return;
-    currentBlock = key;
-    var f = document.getElementById('tvLivePlayer');
-    if(!f) return;
-    var v = BLOCKS[key].videos;
-    var src = 'https://www.youtube-nocookie.com/embed/' + v[0] + '?playlist=' + v.join(',') + '&loop=1&autoplay=1&mute=1&rel=0';
-    if(f.getAttribute('src') !== src) f.setAttribute('src', src);
+  var player = null, playerReady = false, started = false, currentBlock = '', currentIdx = 0, errCount = 0;
+  function showBlockName(){
+    var p = BLOCKS[currentBlock || blockFor(tiranaNow())].name;
+    var b = document.querySelectorAll('[data-program-short]');
+    for(var y = 0; y < b.length; y++) b[y].textContent = p;
   }
+  function loadBlockVideo(key, idx, autoplay){
+    if(!playerReady) return;
+    var v = BLOCKS[key].videos;
+    idx = ((idx % v.length) + v.length) % v.length;
+    currentBlock = key; currentIdx = idx;
+    if(autoplay) player.loadVideoById(v[idx]);
+    else player.cueVideoById(v[idx]);
+  }
+  function setPlayBtn(playing){
+    var b = document.getElementById('tvPlayBtn');
+    if(b) b.textContent = playing ? '⏸ Ndalo' : '▶ Luaj';
+  }
+  function setMuteBtn(){
+    var b = document.getElementById('tvMuteBtn');
+    if(!b || !playerReady) return;
+    b.textContent = player.isMuted() ? '🔇 Zëri fikur' : '🔊 Zëri ndezur';
+  }
+  function startChannel(){
+    if(!playerReady){
+      var sub = document.querySelector('.tv-facade-sub');
+      if(sub) sub.textContent = 'Po ngarkohet… provo përsëri pas pak.';
+      return;
+    }
+    var f = document.getElementById('tvFacade');
+    if(f) f.style.display = 'none';
+    started = true;
+    player.playVideo();
+    setPlayBtn(true);
+  }
+  function togglePlay(){
+    if(!playerReady) return;
+    if(!started){ startChannel(); return; }
+    var st = player.getPlayerState();
+    if(st === YT.PlayerState.PLAYING){ player.pauseVideo(); setPlayBtn(false); }
+    else { player.playVideo(); setPlayBtn(true); }
+  }
+  function onPlayerReady(){ playerReady = true; setMuteBtn(); }
+  function onPlayerStateChange(e){
+    if(e.data === YT.PlayerState.PLAYING){ errCount = 0; setPlayBtn(true); }
+    else if(e.data === YT.PlayerState.PAUSED){ setPlayBtn(false); }
+    else if(e.data === YT.PlayerState.ENDED){ loadBlockVideo(currentBlock, currentIdx + 1, true); }
+  }
+  function onPlayerError(){
+    errCount++;
+    var key = currentBlock || blockFor(tiranaNow());
+    var v = BLOCKS[key].videos;
+    if(errCount >= v.length){
+      started = false; setPlayBtn(false);
+      var f = document.getElementById('tvFacade');
+      if(f){
+        f.style.display = 'flex';
+        var sub = document.querySelector('.tv-facade-sub');
+        if(sub) sub.textContent = 'Videoja nuk luhet dot — shtyp Play për të provuar përsëri.';
+      }
+      return;
+    }
+    loadBlockVideo(key, currentIdx + 1, started);
+  }
+  window.onYouTubeIframeAPIReady = function(){
+    player = new YT.Player('tvLivePlayer', {
+      videoId: BLOCKS[blockFor(tiranaNow())].videos[0],
+      playerVars: { rel: 0, playsinline: 1, modestbranding: 1, controls: 0, fs: 1 },
+      events: { onReady: onPlayerReady, onStateChange: onPlayerStateChange, onError: onPlayerError }
+    });
+  };
+  (function loadYTAPI(){
+    var t = document.createElement('script');
+    t.src = 'https://www.youtube.com/iframe_api';
+    var s0 = document.getElementsByTagName('script')[0];
+    s0.parentNode.insertBefore(t, s0);
+  })();
+  var _facade = document.getElementById('tvFacade');
+  if(_facade){
+    _facade.addEventListener('click', startChannel);
+    _facade.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); startChannel(); } });
+  }
+  var _shield = document.getElementById('tvClickShield');
+  if(_shield) _shield.addEventListener('click', togglePlay);
+  var _playBtn = document.getElementById('tvPlayBtn');
+  if(_playBtn) _playBtn.addEventListener('click', togglePlay);
+  var _muteBtn = document.getElementById('tvMuteBtn');
+  if(_muteBtn) _muteBtn.addEventListener('click', function(){
+    if(!playerReady) return;
+    if(player.isMuted()) player.unMute(); else player.mute();
+    setMuteBtn();
+  });
+  var _fullBtn = document.getElementById('tvFullBtn');
+  if(_fullBtn) _fullBtn.addEventListener('click', function(){
+    var el = document.getElementById('tvLivePlayer');
+    el = el ? el.parentElement : null;
+    if(!el) return;
+    if(el.requestFullscreen) el.requestFullscreen();
+    else if(el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+  });
   function tick(){
     var d = tiranaNow();
     var t = pad(d.getHours()) + ':' + pad(d.getMinutes());
     var els = document.querySelectorAll('[data-clock]');
     for(var i = 0; i < els.length; i++) els[i].textContent = t;
     var key = blockFor(d);
-    var p = BLOCKS[key].name;
-    var b = document.querySelectorAll('[data-program-short]');
-    for(var y = 0; y < b.length; y++) b[y].textContent = p;
-    setPlayer(key);
+    if(playerReady && key !== currentBlock){
+      loadBlockVideo(key, 0, started);
+    } else if(!playerReady){
+      currentBlock = key;
+    }
+    showBlockName();
   }
   setInterval(tick, 20000);
 
@@ -1772,8 +1890,7 @@ footer a:hover{color:#fff}
       if(this.getAttribute('data-channel') === 'tv'){
         var stage = document.querySelector('.tv-stage');
         if(stage) stage.scrollIntoView({ behavior:'smooth', block:'center' });
-        var v = document.getElementById('tvMainVideo');
-        if(v){ var p = v.play(); if(p && p.catch) p.catch(function(){}); }
+        if(typeof startChannel === 'function') startChannel();
       }
     });
   }
