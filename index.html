@@ -1741,6 +1741,10 @@ body.tv-full .tv-set .tv-neck, body.tv-full .tv-set .tv-base, body.tv-full .tv-c
     syncMemberSlot();
   }
   window.addEventListener('hashchange', route);
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href^="#/"]') : null;
+    if(a){ setTimeout(route, 0); }
+  });
   route();
 
   /* Butonat "Dëgjo tani" — lëvizje brenda së njëjtës pamje, pa ndryshuar hash-in */
@@ -1778,7 +1782,7 @@ body.tv-full .tv-set .tv-neck, body.tv-full .tv-set .tv-base, body.tv-full .tv-c
     if(h === 14) return 'ekonomi';
     return 'nate';
   }
-  var player = null, playerReady = false, started = false, currentBlock = '', currentIdx = 0, errCount = 0, seekDone = false;
+  var player = null, playerReady = false, started = false, currentBlock = '', currentIdx = 0, errCount = 0, seekDone = false, pendingResume = null;
   function showBlockName(){
     var p = BLOCKS[currentBlock || blockFor(tiranaNow())].name;
     var b = document.querySelectorAll('[data-program-short]');
@@ -1810,6 +1814,8 @@ body.tv-full .tv-set .tv-neck, body.tv-full .tv-set .tv-base, body.tv-full .tv-c
     var f = document.getElementById('tvFacade');
     if(f) f.style.display = 'none';
     started = true;
+    var plan = resumePlan();
+    if(plan){ pendingResume = plan; if(plan.idx !== currentIdx){ loadBlockVideo(plan.key, plan.idx, false); } }
     player.playVideo();
     setPlayBtn(true);
   }
@@ -1829,9 +1835,61 @@ body.tv-full .tv-set .tv-neck, body.tv-full .tv-set .tv-base, body.tv-full .tv-c
     if(off > dur - 15) off = dur*0.5;
     return Math.floor(off);
   }
+  var RESUME_KEY = 'aleronResume';
+  function saveResume(){
+    try{
+      if(!playerReady || !started) return;
+      var v = BLOCKS[currentBlock] && BLOCKS[currentBlock].videos;
+      if(!v) return;
+      var t = 0; try{ t = player.getCurrentTime(); }catch(_){}
+      if(!t || t < 5) return;
+      localStorage.setItem(RESUME_KEY, JSON.stringify({videoId: v[currentIdx], time: t, block: currentBlock, savedAt: Date.now()}));
+    }catch(_){}
+  }
+  function resumePlan(){
+    try{
+      var raw = localStorage.getItem(RESUME_KEY);
+      if(!raw) return null;
+      var st = JSON.parse(raw);
+      if(!st || !st.videoId || typeof st.time !== 'number' || !st.savedAt) return null;
+      if(Date.now() - st.savedAt > 24*3600*1000) return null;
+      var key = blockFor(tiranaNow());
+      var v = BLOCKS[key].videos;
+      var idx = v.indexOf(st.videoId);
+      if(idx < 0) return null;
+      return {key: key, idx: idx, time: st.time, savedAt: st.savedAt};
+    }catch(_){ return null; }
+  }
+  var seekTimer = null;
+  function seekTarget(d){
+    if(pendingResume){
+      var t = pendingResume.time + (Date.now() - pendingResume.savedAt)/1000;
+      pendingResume = null;
+      if(t < d - 10) return Math.floor(t);
+      loadBlockVideo(currentBlock, currentIdx + 1, true);
+      return null;
+    }
+    return liveOffset(d);
+  }
+  function armSeek(){
+    if(seekTimer) clearInterval(seekTimer);
+    var tries = 0;
+    seekTimer = setInterval(function(){
+      tries++;
+      if(seekDone || tries > 30){ if(tries > 30) seekDone = true; clearInterval(seekTimer); seekTimer = null; return; }
+      var d = 0;
+      try{ d = player.getDuration(); }catch(_){}
+      if(d && isFinite(d) && d > 30){
+        clearInterval(seekTimer); seekTimer = null;
+        seekDone = true;
+        var target = seekTarget(d);
+        if(target !== null){ player.seekTo(target, true); saveResume(); }
+      }
+    }, 400);
+  }
   function onPlayerStateChange(e){
-    if(e.data === YT.PlayerState.PLAYING){ errCount = 0; setPlayBtn(true); if(!seekDone){ seekDone = true; try{ var dd = player.getDuration(); if(dd && isFinite(dd) && dd > 30){ player.seekTo(liveOffset(dd), true); } }catch(_){} } }
-    else if(e.data === YT.PlayerState.PAUSED){ setPlayBtn(false); }
+    if(e.data === YT.PlayerState.PLAYING){ errCount = 0; setPlayBtn(true); if(!seekDone){ armSeek(); } }
+    else if(e.data === YT.PlayerState.PAUSED){ setPlayBtn(false); saveResume(); }
     else if(e.data === YT.PlayerState.ENDED){ loadBlockVideo(currentBlock, currentIdx + 1, true); }
   }
   function onPlayerError(){
@@ -1938,8 +1996,10 @@ body.tv-full .tv-set .tv-neck, body.tv-full .tv-set .tv-base, body.tv-full .tv-c
       currentBlock = key;
     }
     showBlockName();
+    saveResume();
   }
   setInterval(tick, 20000);
+  window.addEventListener('beforeunload', saveResume);
 
   var btns = document.querySelectorAll('.ch-btn');
   for(var j = 0; j < btns.length; j++){
