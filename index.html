@@ -799,7 +799,7 @@ body.tv-full .tv-set .tv-neck, body.tv-full .tv-set .tv-base, body.tv-full .tv-c
           <a class="ch-btn" href="#/podcast"><span class="ch-num">CH 04</span>Podkasti Kodi Shqiptar</a>
         </div>
       </div>
-      <p class="screen-note">Transmetim live në këtë ekran — lajme, sport, dokumentarë, koncerte me muzikë e valle dhe filma realë, me alternim sipas orarit. Shtypni Play — kanali luan këtu në website, me zë, pa dalë askund. Podkasti <strong>Kodi Shqiptar</strong> ka profilin e tij të veçantë: <a href="#/podcast" style="color:#ff9d8a">hapni profilin e podkastit</a>.</p>
+      <p class="screen-note">Transmetim live në këtë ekran — lajme, ekonomi, sport, dokumentarë, koncerte me muzikë e valle dhe filma realë, me alternim sipas orarit. Shtypni Play — kanali luan këtu në website, me zë, pa dalë askund. Podkasti <strong>Kodi Shqiptar</strong> ka profilin e tij të veçantë: <a href="#/podcast" style="color:#ff9d8a">hapni profilin e podkastit</a>.</p>
 
       <div class="program">
         <h3>Sot në Albanian TV</h3>
@@ -827,7 +827,7 @@ body.tv-full .tv-set .tv-neck, body.tv-full .tv-set .tv-base, body.tv-full .tv-c
         <div class="program-row">
           <div>
             <b>Transmetimi live</b>
-            <p>Lajme, sport, dokumentarë, koncerte dhe filma realë, me alternim sipas orarit — drejtpërdrejt nga studioja e Asamblesë.</p>
+            <p>Lajme, ekonomi, sport, dokumentarë, koncerte dhe filma realë, me alternim sipas orarit — drejtpërdrejt nga studioja e Asamblesë.</p>
           </div>
           <span class="pr-state">Live</span>
         </div>
@@ -1764,16 +1764,18 @@ body.tv-full .tv-set .tv-neck, body.tv-full .tv-set .tv-base, body.tv-full .tv-c
   var BLOCKS = {
     lajme: {name:'Lajmet e ditës', videos:['_sXJzAfHEd4','4WoSVMU6iw4','WFlbeLAY49M','BhiPl3o_00I','zOnH3PkBpb8']},
     lajmeFinal: {name:'Lajmet e ditës — edicioni final', videos:['_sXJzAfHEd4','4WoSVMU6iw4','WFlbeLAY49M','BhiPl3o_00I','zOnH3PkBpb8']},
-    sport: {name:'Sporti', videos:['vL0dTg95Wss','m7NnZOwh320','_UGbN5UbMFM']},
-    dok: {name:'Dokumentarë', videos:['l6Hj8qge2BA','PPRFlAZtNrk','tzg13JyKCZg','qBavaHPzmyA','Wy0lz9d1dOA','bvcb8EYxsjg']},
-    nate: {name:'Filma dhe koncerte shqiptare', videos:['vUfUe4vI844','R1simYFvQQY','bjOwqHeZ9Y0','w-wi5OFPf58','FD07ep95eho','mfkuHzoEvHk','sAEte2QoQ_I','Pu0pH5BuCPM','pWJjYoqVSjQ','kw0YhiqOPFg']}
+    sport: {name:'Sporti', videos:['vL0dTg95Wss','m7NnZOwh320','_UGbN5UbMFM','onp3oYzutzs','NVND3NCG68g','44pKzsIZ1bc','vKOGISxQTNI']},
+    dok: {name:'Dokumentarë', videos:['l6Hj8qge2BA','PPRFlAZtNrk','tzg13JyKCZg','qBavaHPzmyA','Wy0lz9d1dOA','bvcb8EYxsjg','3vsoGJPMV9o','y6UkEm8tpG0','2aMZ7y6ivSg','OA7uWcFTF2U']},
+    ekonomi: {name:'Ekonomi', videos:['klRd5_iVJkI','TD5gxcgA_4g','rGqBdrjmdJk','zTh1Zlh_WuY','LBD6f-NwxBE']},
+    nate: {name:'Filma dhe koncerte shqiptare', videos:['vUfUe4vI844','R1simYFvQQY','bjOwqHeZ9Y0','w-wi5OFPf58','FD07ep95eho','mfkuHzoEvHk','ADwS7VqWhO4','11R4XZdk-VI','xisilpXtYvs','CkKv3domhCo','36oqiuAdqbA','ho8xzy_NvaU','sAEte2QoQ_I','d2X6e38bI4w','Tsp-0QUbAqE','e1t1dlQZD3I','Pu0pH5BuCPM','pWJjYoqVSjQ','kw0YhiqOPFg','nb_fFj_0rq8','sEgPQ7HKoBA','vt98AlBDI9Y','Ox8ZLF6cGM0']}
   };
   function blockFor(d){
     var h = d.getHours();
     if(h === 8 || h === 12 || h === 15) return 'lajme';
     if(h === 20) return 'lajmeFinal';
     if((h >= 9 && h < 12) || (h >= 16 && h < 20)) return 'sport';
-    if(h >= 13 && h < 15) return 'dok';
+    if(h === 13) return 'dok';
+    if(h === 14) return 'ekonomi';
     return 'nate';
   }
   var player = null, playerReady = false, started = false, currentBlock = '', currentIdx = 0, errCount = 0;
