@@ -449,12 +449,12 @@ body.tv-full .tv-set .tv-neck, body.tv-full .tv-set .tv-base, body.tv-full .tv-c
   <span class="t-label"><i aria-hidden="true"></i>Të fundit</span>
   <div class="ticker-viewport">
     <div class="ticker-track" id="tickerTrack">
-      <span><b>PROTESTA</b> — Bilanci i 14 nëntorit: 3 të arrestuar, 18 të proceduar, 44 gjoba •</span>
-      <span><b>PS</b> — Rama kërkon përjashtimin e Spiropalit dhe Ndrecës; Majko kundër •</span>
-      <span><b>SPORT</b> — Shqipëria–Bjellorusia sot 18:00 në Budapest; barazimi mjafton për vendin e parë •</span>
-      <span><b>MARATONA</b> — Luiza Gega fitoi Maratonën e Tiranës, 42 km për 2:35:35 •</span>
-      <span><b>ELBASAN</b> — Tre të arrestuar për tritolin ndaj makinës së punonjëses së Bashkisë •</span>
-      <span><b>TIRANË</b> — 17-vjeçar i arrestuar me pushkë dhe 140 fishekë •</span>
+      <span><b>PROTESTA</b> — Protestuesit para Kryeministrisë në ditën e 169-të, kërkojnë dorëheqjen e Ramës •</span>
+      <span><b>PS</b> — Spiropali e Ndreca jashtë forumeve drejtuese; Klosi: mbeten anëtarë të thjeshtë •</span>
+      <span><b>SPORT</b> — Shqipëria mposht Bjellorusinë dhe ngjitet në Ligën B; Manaj golashënuesi i dytë më i mirë •</span>
+      <span><b>BE</b> — Rama: Në 2027 nisin përgatitjet për Traktatin e Anëtarësimit në BE •</span>
+      <span><b>AKSIDENT</b> — Aksident fatal në Rozhajë–Beranë: humb jetën një 47-vjeçar nga Kosova •</span>
+      <span><b>KOSOVË</b> — Ish-ministri Haraqija arrestohet në aksionin “Heshtja”; 6 të arrestuar •</span>
     </div>
   </div>
 </div>
@@ -1775,13 +1775,13 @@ body.tv-full .tv-set .tv-neck, body.tv-full .tv-set .tv-base, body.tv-full .tv-c
   function pad(n){ return (n < 10 ? '0' : '') + n; }
   function tiranaNow(){ try{ return new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Tirane'})); }catch(e){ return new Date(); } }
   var BLOCKS = {
-    lajme: {name:'Lajmet e ditës', videos:['9mdeYAEeCY8','NFiUQhYXjqw','N74oAiydcqM','S6MkLhStey0','pDridy8wa5Q']},
-    lajmeFinal: {name:'Lajmet e ditës — edicioni final', videos:['9mdeYAEeCY8','NFiUQhYXjqw','N74oAiydcqM','S6MkLhStey0','pDridy8wa5Q']},
-    sport: {name:'Sporti', videos:['O5p0Sq249Ho','44pKzsIZ1bc','rCE0gc-YWAc','Q3qGQSqzRHI','lELgljp2E-w','vsqn9y06z-M','8ge2gG1Fa9w']},
-    dok: {name:'Dokumentarë', videos:['_H1TixG3Chg','hrRDKGDf2OQ','tzg13JyKCZg','qBavaHPzmyA','Wy0lz9d1dOA','bvcb8EYxsjg','3vsoGJPMV9o','y6UkEm8tpG0','2aMZ7y6ivSg','OA7uWcFTF2U']},
-    ekonomi: {name:'Ekonomi', videos:['z6rWNfME5bg','ApaIJbJ87qE','-u6rnTXjCUQ','o7ig9DE2FvE','Wz_beyXl5vM']},
-    mengjes: {name:'Emisioni i mëngjesit', videos:['R4-ZBWFcLXc','PdAM0qUjU10','u5-ZHb8TG98','2YVd-Wn0OlY','6aS26m7dCPk']},
-    nate: {name:'Filma dhe koncerte shqiptare', videos:['fq7Q-dtIZeM','KgVcfmbfnhg','ErSKnOcU3f8','HMzYdUTa1qU','Xzn_71fpTS8','w-wi5OFPf58','FD07ep95eho','mfkuHzoEvHk','ADwS7VqWhO4','11R4XZdk-VI','xisilpXtYvs','CkKv3domhCo','36oqiuAdqbA','ho8xzy_NvaU','sAEte2QoQ_I','d2X6e38bI4w','Tsp-0QUbAqE','e1t1dlQZD3I','Pu0pH5BuCPM','pWJjYoqVSjQ','kw0YhiqOPFg','nb_fFj_0rq8','sEgPQ7HKoBA']}
+    lajme: {name:'Lajmet e ditës', videos:['ruDrFB31Hvw','sctBPLLtbp4','57OQW_n8Q_8','gpFECnp89dU','mMLYjI9UI2E']},
+    lajmeFinal: {name:'Lajmet e ditës — edicioni final', videos:['ruDrFB31Hvw','sctBPLLtbp4','57OQW_n8Q_8','gpFECnp89dU','mMLYjI9UI2E']},
+    sport: {name:'Sporti', videos:['mjXaoSie97U','JWt22b1yUaw','htXdU8v0yIc','TG7hmNrD5Ko','44pKzsIZ1bc','rCE0gc-YWAc','Q3qGQSqzRHI']},
+    dok: {name:'Dokumentarë', videos:['u_JXaesZ48k','2kqsr1NMSTg','_H1TixG3Chg','hrRDKGDf2OQ','tzg13JyKCZg','qBavaHPzmyA','Wy0lz9d1dOA','bvcb8EYxsjg','3vsoGJPMV9o','y6UkEm8tpG0']},
+    ekonomi: {name:'Ekonomi', videos:['TM5ijzSmNTk','8DBihq_kw7I','z6rWNfME5bg','ApaIJbJ87qE','-u6rnTXjCUQ']},
+    mengjes: {name:'Emisioni i mëngjesit', videos:['R4-ZBWFcLXc','PdAM0qUjU10','D8YLgkrF71A','2YVd-Wn0OlY','6aS26m7dCPk']},
+    nate: {name:'Filma dhe koncerte shqiptare', videos:['L4X6Ssyf11c','vSRM3_HZvLg','kMDA4y6lips','30jBITxTQWI','uO4wsV7HEUY','fq7Q-dtIZeM','KgVcfmbfnhg','ErSKnOcU3f8','HMzYdUTa1qU','Xzn_71fpTS8','w-wi5OFPf58','FD07ep95eho','mfkuHzoEvHk','ADwS7VqWhO4','11R4XZdk-VI','xisilpXtYvs','CkKv3domhCo','36oqiuAdqbA','ho8xzy_NvaU','sAEte2QoQ_I','d2X6e38bI4w','Tsp-0QUbAqE','e1t1dlQZD3I']}
   };
   function blockFor(d){
     var h = d.getHours();
