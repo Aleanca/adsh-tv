@@ -449,12 +449,12 @@ body.tv-full .tv-set .tv-neck, body.tv-full .tv-set .tv-base, body.tv-full .tv-c
   <span class="t-label"><i aria-hidden="true"></i>Të fundit</span>
   <div class="ticker-viewport">
     <div class="ticker-track" id="tickerTrack">
-      <span><b>BE</b> — Rama në Bruksel për Forumin e Zgjerimit të BE-së; takime me Costa-n dhe Metsolën •</span>
-      <span><b>KOSOVË</b> — Kosova ndalon tregtimin e energjisë me kompanitë serbe; Kurti: masë e parë, mund të përshkallëzohet •</span>
-      <span><b>PRIZREN</b> — Vdes 26-vjeçarja gjatë intervistimit nga antidroga; nisin hetimet •</span>
-      <span><b>SPORT</b> — Shqipëria ngjitet në Ligën B pasi mposhti Bjellorusinë 2-0 •</span>
-      <span><b>MARATONA</b> — Luiza Gega triumfon në Maratonën e Tiranës: 42 km për 2 orë, 35 minuta e 35 sekonda •</span>
-      <span><b>HAGA</b> — Më 17 nëntor Haga vendos sërish për Hashim Thaçin •</span>
+      <span><b>AKSIDENT</b> — Humb jetën në aksident në autostradën Fier-Vlorë shefi i Krimeve të Vlorës, Ermal Lulaj; një tjetër i plagosur •</span>
+      <span><b>SPAK</b> — SPAK dërgon në gjyq dosjen për Ballukun, të pandehur edhe 27 persona të tjerë •</span>
+      <span><b>BE</b> — Von der Leyen: Shqipëria, përparim mbresëlënës; Rama në Bruksel për Forumin e Zgjerimit të BE-së •</span>
+      <span><b>PROTESTA</b> — Tensione para Kryeministrisë në Tiranë, policia shoqëron dy protestues •</span>
+      <span><b>SPORT</b> — Shqipëria në Ligën B, një vazo më lart për Europianin; Maran: në rrugën e duhur •</span>
+      <span><b>HAGA</b> — Sot, 17 nëntor, Haga vendos sërish për Hashim Thaçin •</span>
     </div>
   </div>
 </div>
@@ -1775,13 +1775,13 @@ body.tv-full .tv-set .tv-neck, body.tv-full .tv-set .tv-base, body.tv-full .tv-c
   function pad(n){ return (n < 10 ? '0' : '') + n; }
   function tiranaNow(){ try{ return new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Tirane'})); }catch(e){ return new Date(); } }
   var BLOCKS = {
-    lajme: {name:'Lajmet e ditës', videos:['Tsvf15ePqmU','6wt18yvBdOA','vrTmTmlcOqs','b4QWdsC_FTU','upUsEkAHQBo']},
-    lajmeFinal: {name:'Lajmet e ditës — edicioni final', videos:['Tsvf15ePqmU','6wt18yvBdOA','vrTmTmlcOqs','b4QWdsC_FTU','upUsEkAHQBo']},
-    sport: {name:'Sporti', videos:['I7SHx7U5YF4','JWt22b1yUaw','Zca_Yc6jW_w','eOrQ_4VGLjo','mjXaoSie97U','htXdU8v0yIc','TG7hmNrD5Ko']},
-    dok: {name:'Dokumentarë', videos:['u_JXaesZ48k','2kqsr1NMSTg','_H1TixG3Chg','hrRDKGDf2OQ','tzg13JyKCZg','qBavaHPzmyA','Wy0lz9d1dOA','bvcb8EYxsjg','3vsoGJPMV9o','y6UkEm8tpG0']},
-    ekonomi: {name:'Ekonomi', videos:['988gif3eK9Q','18UIrIM1wzA','wnuOMbuki1I','z6rWNfME5bg','ApaIJbJ87qE']},
-    mengjes: {name:'Emisioni i mëngjesit', videos:['HfFVDG8jf3Q','YNxZ_E_DMA4','R4-ZBWFcLXc','2YVd-Wn0OlY','6aS26m7dCPk']},
-    nate: {name:'Filma dhe koncerte shqiptare', videos:['L4X6Ssyf11c','vSRM3_HZvLg','kMDA4y6lips','30jBITxTQWI','uO4wsV7HEUY','fq7Q-dtIZeM','KgVcfmbfnhg','ErSKnOcU3f8','HMzYdUTa1qU','Xzn_71fpTS8','w-wi5OFPf58','FD07ep95eho','mfkuHzoEvHk','ADwS7VqWhO4','11R4XZdk-VI','xisilpXtYvs','CkKv3domhCo','36oqiuAdqbA','ho8xzy_NvaU','sAEte2QoQ_I','d2X6e38bI4w','Tsp-0QUbAqE','e1t1dlQZD3I']}
+    lajme: {name:'Lajmet e ditës', videos:['uYQ0j_qf69o','QXm8CcIqNf4','mijGQYcnt6I','nnMDH4dUWsM','CH8PgRhyGOw']},
+    lajmeFinal: {name:'Lajmet e ditës — edicioni final', videos:['uYQ0j_qf69o','QXm8CcIqNf4','mijGQYcnt6I','nnMDH4dUWsM','CH8PgRhyGOw']},
+    sport: {name:'Sporti', videos:['WiQwqulnW34','I7SHx7U5YF4','mjXaoSie97U','JWt22b1yUaw','eOrQ_4VGLjo','htXdU8v0yIc','TG7hmNrD5Ko']},
+    dok: {name:'Dokumentarë', videos:['-wiEv3CJH54','WwDMKwPbPPA','u_JXaesZ48k','2kqsr1NMSTg','_H1TixG3Chg','hrRDKGDf2OQ','tzg13JyKCZg','qBavaHPzmyA','Wy0lz9d1dOA','bvcb8EYxsjg']},
+    ekonomi: {name:'Ekonomi', videos:['hZyGdA9rEwU','MoGFtd5P_24','988gif3eK9Q','18UIrIM1wzA','wnuOMbuki1I']},
+    mengjes: {name:'Emisioni i mëngjesit', videos:['HfFVDG8jf3Q','YNxZ_E_DMA4','R4-ZBWFcLXc','59UzOHB0PZA','LiW5jTycVxI']},
+    nate: {name:'Filma dhe koncerte shqiptare', videos:['di8GMmulXXQ','1jAeUZw02J0','xO92LnyDxQg','L4X6Ssyf11c','vSRM3_HZvLg','kMDA4y6lips','30jBITxTQWI','uO4wsV7HEUY','fq7Q-dtIZeM','KgVcfmbfnhg','ErSKnOcU3f8','HMzYdUTa1qU','Xzn_71fpTS8','w-wi5OFPf58','FD07ep95eho','mfkuHzoEvHk','ADwS7VqWhO4','11R4XZdk-VI','xisilpXtYvs','CkKv3domhCo','36oqiuAdqbA','ho8xzy_NvaU','sAEte2QoQ_I']}
   };
   function blockFor(d){
     var h = d.getHours();
