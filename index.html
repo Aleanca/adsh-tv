@@ -449,12 +449,12 @@ body.tv-full .tv-set .tv-neck, body.tv-full .tv-set .tv-base, body.tv-full .tv-c
   <span class="t-label"><i aria-hidden="true"></i>Të fundit</span>
   <div class="ticker-viewport">
     <div class="ticker-track" id="tickerTrack">
-      <span><b>AKSIDENT</b> — Humb jetën në aksident në autostradën Fier-Vlorë shefi i Krimeve të Vlorës, Ermal Lulaj; një tjetër i plagosur •</span>
-      <span><b>SPAK</b> — SPAK dërgon në gjyq dosjen për Ballukun, të pandehur edhe 27 persona të tjerë •</span>
-      <span><b>BE</b> — Von der Leyen: Shqipëria, përparim mbresëlënës; Rama në Bruksel për Forumin e Zgjerimit të BE-së •</span>
-      <span><b>PROTESTA</b> — Tensione para Kryeministrisë në Tiranë, policia shoqëron dy protestues •</span>
-      <span><b>SPORT</b> — Shqipëria në Ligën B, një vazo më lart për Europianin; Maran: në rrugën e duhur •</span>
-      <span><b>HAGA</b> — Sot, 17 nëntor, Haga vendos sërish për Hashim Thaçin •</span>
+      <span><b>HAGA</b> — Hashim Thaçi dënohet me 17 muaj burg për pengim të drejtësisë në Hagë •</span>
+      <span><b>GJKKO</b> — GJKKO nuk e shtyn seancën ndaj Veliajt, procesi vijon pa praninë e tij •</span>
+      <span><b>PROKURIME</b> — Rama prezanton modelin e ri të prokurimeve publike me "Diella"-n •</span>
+      <span><b>BUXHETI</b> — PD kundër buxhetit 2027, shqyrtimi nesër në Kuvend •</span>
+      <span><b>SPORT</b> — Kosova sonte në Dublin ndaj Irlandës; Shqipëria U-21 pret Spanjën në "Air Albania" •</span>
+      <span><b>SHBA</b> — Sot testi kombëtar i alarmit të emergjencës, ora 14:20 në Nju Jork •</span>
     </div>
   </div>
 </div>
@@ -1775,12 +1775,12 @@ body.tv-full .tv-set .tv-neck, body.tv-full .tv-set .tv-base, body.tv-full .tv-c
   function pad(n){ return (n < 10 ? '0' : '') + n; }
   function tiranaNow(){ try{ return new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Tirane'})); }catch(e){ return new Date(); } }
   var BLOCKS = {
-    lajme: {name:'Lajmet e ditës', videos:['uYQ0j_qf69o','QXm8CcIqNf4','mijGQYcnt6I','nnMDH4dUWsM','CH8PgRhyGOw']},
-    lajmeFinal: {name:'Lajmet e ditës — edicioni final', videos:['uYQ0j_qf69o','QXm8CcIqNf4','mijGQYcnt6I','nnMDH4dUWsM','CH8PgRhyGOw']},
-    sport: {name:'Sporti', videos:['WiQwqulnW34','I7SHx7U5YF4','mjXaoSie97U','JWt22b1yUaw','eOrQ_4VGLjo','htXdU8v0yIc','TG7hmNrD5Ko']},
+    lajme: {name:'Lajmet e ditës', videos:['7lBYmNkbtWk','dndxN5Ty_9A','v-jJwPU-AVU','8ct7Vx5UIGc','hADlil4Xvcc']},
+    lajmeFinal: {name:'Lajmet e ditës — edicioni final', videos:['7lBYmNkbtWk','dndxN5Ty_9A','v-jJwPU-AVU','8ct7Vx5UIGc','hADlil4Xvcc']},
+    sport: {name:'Sporti', videos:['fas4DWCfw9g','wWPbqWITgLw','h1IUuFMJ3PM','I7SHx7U5YF4','WiQwqulnW34','mjXaoSie97U','JWt22b1yUaw']},
     dok: {name:'Dokumentarë', videos:['-wiEv3CJH54','WwDMKwPbPPA','u_JXaesZ48k','2kqsr1NMSTg','_H1TixG3Chg','hrRDKGDf2OQ','tzg13JyKCZg','qBavaHPzmyA','Wy0lz9d1dOA','bvcb8EYxsjg']},
-    ekonomi: {name:'Ekonomi', videos:['hZyGdA9rEwU','MoGFtd5P_24','988gif3eK9Q','18UIrIM1wzA','wnuOMbuki1I']},
-    mengjes: {name:'Emisioni i mëngjesit', videos:['HfFVDG8jf3Q','YNxZ_E_DMA4','R4-ZBWFcLXc','59UzOHB0PZA','LiW5jTycVxI']},
+    ekonomi: {name:'Ekonomi', videos:['VHpZv3yMCgo','ZyHoiu6Zz4Q','hZyGdA9rEwU','MoGFtd5P_24','988gif3eK9Q']},
+    mengjes: {name:'Emisioni i mëngjesit', videos:['kYIOpTWT0DU','GzxUNwMbWDs','aoBolEcQYEI','BCuCNhYk0l8','E9ufh-NJfLE']},
     nate: {name:'Filma dhe koncerte shqiptare', videos:['di8GMmulXXQ','1jAeUZw02J0','xO92LnyDxQg','L4X6Ssyf11c','vSRM3_HZvLg','kMDA4y6lips','30jBITxTQWI','uO4wsV7HEUY','fq7Q-dtIZeM','KgVcfmbfnhg','ErSKnOcU3f8','HMzYdUTa1qU','Xzn_71fpTS8','w-wi5OFPf58','FD07ep95eho','mfkuHzoEvHk','ADwS7VqWhO4','11R4XZdk-VI','xisilpXtYvs','CkKv3domhCo','36oqiuAdqbA','ho8xzy_NvaU','sAEte2QoQ_I']}
   };
   function blockFor(d){
