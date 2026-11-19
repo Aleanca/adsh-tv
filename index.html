@@ -449,12 +449,12 @@ body.tv-full .tv-set .tv-neck, body.tv-full .tv-set .tv-base, body.tv-full .tv-c
   <span class="t-label"><i aria-hidden="true"></i>Të fundit</span>
   <div class="ticker-viewport">
     <div class="ticker-track" id="tickerTrack">
-      <span><b>BUXHETI</b> — Kuvendi në seancë për Buxhetin 2027 — Rama: buxhet historik, prek për herë të parë 10 miliardë euro •</span>
-      <span><b>STREHIMI</b> — Rama: 10 mijë familje do të përfitojnë nga paketa e re e strehimit •</span>
-      <span><b>TVSH</b> — Rama njofton ulje të TVSH-së për 54 produkte të shportës dhe paralajmëron tregtarët •</span>
-      <span><b>PROTESTA</b> — Protesta para Kryeministrisë — dhunohen 2 efektivë policie, 24 të proceduar penalisht •</span>
-      <span><b>EKSTRADIM</b> — Ekstradohet nga SHBA Valentin Ftoni, i dënuar me 50 vjet burg për tri vrasje •</span>
-      <span><b>HIMARS</b> — SHBA miraton në parim HIMARS për Shqipërinë — paketa ushtarake 210 milionë dollarë •</span>
+      <span><b>BUXHETI</b> — Buxheti 2027 në Kuvend — Rama: historik, 10 miliardë euro • Berisha: i fundit që sjell Rama •</span>
+      <span><b>HIMARS</b> — DASH miraton shitjen e raketave HIMARS për Shqipërinë — paketa 210 milionë dollarë •</span>
+      <span><b>EURO</b> — Euro zbret për herë të parë nën 90 lekë — niveli më i ulët historik •</span>
+      <span><b>MALARIA</b> — Një person i prekur nga malaria — ISHP: e mori jashtë vendit, s'ka vend për panik •</span>
+      <span><b>GREQI</b> — Komplot për vrasjen e biznesmenit izraelit në Greqi — në pranga edhe 4 shqiptarë të Maqedonisë së Veriut •</span>
+      <span><b>KINA</b> — Trump takon Putinin dhe Xi Jinping — nesër takimi trepalësh •</span>
     </div>
   </div>
 </div>
@@ -1831,13 +1831,13 @@ body.tv-full .tv-set .tv-neck, body.tv-full .tv-set .tv-base, body.tv-full .tv-c
   function pad(n){ return (n < 10 ? '0' : '') + n; }
   function tiranaNow(){ try{ return new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Tirane'})); }catch(e){ return new Date(); } }
   var BLOCKS = {
-    lajme: {name:'Lajmet e ditës', videos:['g-qSfGRpiQE','JfUdUT06gBk','Q8xZNNZ9fEk','PsCFradVQOM','sZiugJvvRVQ']},
-    lajmeFinal: {name:'Lajmet e ditës — edicioni final', videos:['g-qSfGRpiQE','JfUdUT06gBk','Q8xZNNZ9fEk','PsCFradVQOM','sZiugJvvRVQ']},
-    sport: {name:'Sporti', videos:['CTWqba96QbA','kyLtLwJ7mLg','E2ql19o1IDU','j_shX7x22NM','YFSyYEz1qwM','5_bTqyopNq0','TEA-phM1XMU']},
-    dok: {name:'Dokumentarë', videos:['pdVHBkppdIo','AkvIWCWb94o','-wiEv3CJH54','WwDMKwPbPPA','u_JXaesZ48k','2kqsr1NMSTg','_H1TixG3Chg','hrRDKGDf2OQ','tzg13JyKCZg','qBavaHPzmyA']},
-    ekonomi: {name:'Ekonomi', videos:['wVPbR1b1rVc','0nr7D8_7ct0','UVx0mKwC6Q0','ajB-JqELOmI','i08QW8XNuP4']},
-    mengjes: {name:'Emisioni i mëngjesit', videos:['qVpmVt6O9CE','uMjesXu5YVo','9gSIKtInTiw','KrPW2mpaSAE','yfqgX0ckwh8']},
-    nate: {name:'Filma dhe koncerte shqiptare', videos:['hC0_slH0bO4','Wjmwq_bDzPQ','Fso81Ypg9T4','l_Ozo1xUgbU','di8GMmulXXQ','1jAeUZw02J0','xO92LnyDxQg','L4X6Ssyf11c','vSRM3_HZvLg','kMDA4y6lips','30jBITxTQWI','uO4wsV7HEUY','fq7Q-dtIZeM','KgVcfmbfnhg','ErSKnOcU3f8','HMzYdUTa1qU','Xzn_71fpTS8','w-wi5OFPf58','FD07ep95eho','mfkuHzoEvHk','ADwS7VqWhO4','11R4XZdk-VI','xisilpXtYvs']}
+    lajme: {name:'Lajmet e ditës', videos:['wEJHehz4N7I','pvGGw4lNjl0','H2CT1RqH_Ls','Gk-XmuEUwVw','XOy8ef3b3jg']},
+    lajmeFinal: {name:'Lajmet e ditës — edicioni final', videos:['wEJHehz4N7I','pvGGw4lNjl0','H2CT1RqH_Ls','Gk-XmuEUwVw','XOy8ef3b3jg']},
+    sport: {name:'Sporti', videos:['lbKO4E6et6A','KzLqkF9k1FQ','MsD5kF3_hgc','A3HyMQBRUMI','YFSyYEz1qwM','5_bTqyopNq0','TEA-phM1XMU']},
+    dok: {name:'Dokumentarë', videos:['SBQXXwqpN_c','pdVHBkppdIo','AkvIWCWb94o','-wiEv3CJH54','WwDMKwPbPPA','u_JXaesZ48k','2kqsr1NMSTg','_H1TixG3Chg','hrRDKGDf2OQ','tzg13JyKCZg']},
+    ekonomi: {name:'Ekonomi', videos:['aT7xBtYj32U','DZVaq7YgzDM','yFo8Ab1EUGs','wVPbR1b1rVc','UVx0mKwC6Q0']},
+    mengjes: {name:'Emisioni i mëngjesit', videos:['qVpmVt6O9CE','uMjesXu5YVo','9gSIKtInTiw','1S-NFPpsn6I','yfqgX0ckwh8']},
+    nate: {name:'Filma dhe koncerte shqiptare', videos:['dlpxXcC8nPk','hC0_slH0bO4','Wjmwq_bDzPQ','Fso81Ypg9T4','l_Ozo1xUgbU','di8GMmulXXQ','1jAeUZw02J0','xO92LnyDxQg','L4X6Ssyf11c','vSRM3_HZvLg','kMDA4y6lips','30jBITxTQWI','uO4wsV7HEUY','fq7Q-dtIZeM','KgVcfmbfnhg','ErSKnOcU3f8','HMzYdUTa1qU','Xzn_71fpTS8','w-wi5OFPf58','FD07ep95eho','mfkuHzoEvHk','ADwS7VqWhO4','11R4XZdk-VI']}
   };
   function blockFor(d){
     var h = d.getHours();
