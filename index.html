@@ -461,12 +461,12 @@ body.tv-full .tv-set .tv-neck, body.tv-full .tv-set .tv-base, body.tv-full .tv-c
   <span class="t-label"><i aria-hidden="true"></i>Të fundit</span>
   <div class="ticker-viewport">
     <div class="ticker-track" id="tickerTrack">
-      <span><b>BE</b> — Vlerëson reformat e Shqipërisë — Kos: Të forcohet sundimi i ligjit •</span>
-      <span><b>VELIAJ</b> — Refuzon operacionin në Fier — spitalin e zgjedh familja, i drejtohet gjykatës •</span>
-      <span><b>REZERVISTËT</b> — Shqipëria rikthen rezervistët — 115 qytetarët e parë vishen me uniformë ushtarake •</span>
-      <span><b>QAFË THANA</b> — Vetëm një kontroll kufitar — Rama: Asnjë ndërhyrje në punët e brendshme të RMV-së •</span>
-      <span><b>COLTURI</b> — Lara Colturi, shqiptarja e parë kampione në Kupën e Botës në ski (Gurgl) •</span>
-      <span><b>MEKSIKA</b> — Arrestohet i shumëkërkuari i FBI-së — 11 viktima nga përplasjet •</span>
+      <span><b>MOTI</b> — Moti i keq godet vendin — 5 avionë nuk ulen në Rinas, 52 fidera jashtë pune •</span>
+      <span><b>FIER</b> — Vrasja në Fier — gjendet i vrarë Selami Hasani, një i plagosur •</span>
+      <span><b>TIRANË</b> — Shpërthimi me tritol — në kërkim 60-vjeçari, procedohen 3 vajza •</span>
+      <span><b>COLTURI</b> — Lara Colturi historike — Shqipëria fiton garën në Kupën e Botës në ski •</span>
+      <span><b>EURO</b> — Euro zgjeron humbjet ndaj lekut — tregjet financiare, 23 nëntor •</span>
+      <span><b>DRAGOSHI</b> — Ndahet nga jeta ish-Prokurori i Përgjithshëm Alush Dragoshi, 77 vjeç •</span>
     </div>
   </div>
 </div>
@@ -1850,12 +1850,12 @@ body.tv-full .tv-set .tv-neck, body.tv-full .tv-set .tv-base, body.tv-full .tv-c
   function pad(n){ return (n < 10 ? '0' : '') + n; }
   function tiranaNow(){ try{ return new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Tirane'})); }catch(e){ return new Date(); } }
   var BLOCKS = {
-    lajme: {name:'Lajmet e ditës', videos:['_uQ7A-GKN5w','ji4Nbk5dJo8','rtYdHv9qJi0','Td9mlGLh2VA','p8Qd23Gq3DM']},
-    lajmeFinal: {name:'Lajmet e ditës — edicioni final', videos:['_uQ7A-GKN5w','ji4Nbk5dJo8','rtYdHv9qJi0','Td9mlGLh2VA','p8Qd23Gq3DM']},
-    sport: {name:'Sporti', videos:['eeK-qDAhsd4','qSa3PFh2Q24','ClJqAJhRuRE','r_hERvHURSw','fvhoAdZTHFY','ezi-M0koHIQ','VhmepyibQy4']},
+    lajme: {name:'Lajmet e ditës', videos:['Rv2AcYYpAkw','a_TabF0nmVE','ji4Nbk5dJo8','p8Qd23Gq3DM','_uQ7A-GKN5w']},
+    lajmeFinal: {name:'Lajmet e ditës — edicioni final', videos:['Rv2AcYYpAkw','a_TabF0nmVE','ji4Nbk5dJo8','p8Qd23Gq3DM','_uQ7A-GKN5w']},
+    sport: {name:'Sporti', videos:['PKfwmGEbBGc','FmYciwywmKs','OVlAqCXJsAg','M_yFCng9X-8','rRpdMDpUAso','0AOu70NwCy4','eeK-qDAhsd4']},
     dok: {name:'Dokumentarë', videos:['H09G6HytHBk','IonOUbgx7Yg','pkKOBWd4wwM','wweKEd9qYeM','SBQXXwqpN_c','pdVHBkppdIo','AkvIWCWb94o','-wiEv3CJH54','WwDMKwPbPPA','u_JXaesZ48k']},
-    ekonomi: {name:'Ekonomi', videos:['wW9uq41j_0k','OoWEGMqVWfg','mDJLXYKyRZU','V_rAfD1hyKI','xPZNr5aVm6k']},
-    mengjes: {name:'Emisioni i mëngjesit', videos:['wukdXGlzCvE','3PjozJ24CfQ','szFebKfMTok','tb_NjCEi2VY','JCqXC9FAzwg']},
+    ekonomi: {name:'Ekonomi', videos:['Ji3015HO2EA','Yocvl9HP93Y','HO6o5daGG7I','PXgenYe4zoU']},
+    mengjes: {name:'Emisioni i mëngjesit', videos:['pd-GlU6ayv0','wukdXGlzCvE','3PjozJ24CfQ','szFebKfMTok','tb_NjCEi2VY']},
     nate: {name:'Filma dhe koncerte shqiptare', videos:['C6gaD40RNRs','d2X6e38bI4w','pGWhimznPWg','e67Qtn_3hkc','SQWEnMonpTo','cal1RfsmHUI','jQCRlnwQJVY','d7NLG3IfowQ','JQsr_JLAiq0','lPWgHfQXYTc','3QuamU0QjDM','gNHr2-JjKRM','ufeJbTNq-BI','dlpxXcC8nPk','hC0_slH0bO4','Wjmwq_bDzPQ','Fso81Ypg9T4','l_Ozo1xUgbU','di8GMmulXXQ','1jAeUZw02J0','xO92LnyDxQg','L4X6Ssyf11c','vSRM3_HZvLg']}
   };
   function blockFor(d){
