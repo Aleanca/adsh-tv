@@ -461,12 +461,12 @@ body.tv-full .tv-set .tv-neck, body.tv-full .tv-set .tv-base, body.tv-full .tv-c
   <span class="t-label"><i aria-hidden="true"></i>Të fundit</span>
   <div class="ticker-viewport">
     <div class="ticker-track" id="tickerTrack">
-      <span><b>PS</b> — Përjashtohet Elisa Spiropali nga grupi parlamentar i PS-së — vetëm 2 abstenime •</span>
-      <span><b>GJOBAT</b> — Gjobat kalojnë online: njoftimi dhe pagesa në telefon, ankesa në e-Albania •</span>
-      <span><b>FIER</b> — Atentati në Fier, shkon në 2 numri i viktimave — autorët me makinë të vjedhur •</span>
-      <span><b>PEJË</b> — Vrasja e Arlinda Zekajt, në pranga edhe 4 të tjerë, mes tyre ish-vjehrra •</span>
-      <span><b>NATO</b> — Rusia do të dërgojë armë bërthamore në hapësirë, NATO në alarm •</span>
-      <span><b>SPORT</b> — Bushi: Shqipëria U-21 synon të kalojë grupin — shorti i Europianit hidhet të enjten •</span>
+      <span><b>SPIROPALI</b> — Konferencë për shtyp: Përjashtimin nga grupi i PS-së po e marr si dekoratë — gati të garoj për kryetare •</span>
+      <span><b>INVESTIME</b> — Konferenca BE-Ballkani Perëndimor në Tiranë — mbi 600 investitorë nga Europa dhe rajoni •</span>
+      <span><b>BRUKSEL</b> — Rama në Samitin BE-Ballkani Perëndimor — Serbia mungon për herë të dytë •</span>
+      <span><b>TIRANË</b> — Veliaj: Nga viti 2027 çerdhet dhe kopshtet do të jenë falas •</span>
+      <span><b>PROTESTA</b> — Berisha thirrje shqiptarëve t'i bashkohen protestës kombëtare të 28 Nëntorit •</span>
+      <span><b>PRISHTINË</b> — Protestë kundër femicidit — kërkohet shpallja e urgjencës kombëtare •</span>
     </div>
   </div>
 </div>
@@ -1850,12 +1850,12 @@ body.tv-full .tv-set .tv-neck, body.tv-full .tv-set .tv-base, body.tv-full .tv-c
   function pad(n){ return (n < 10 ? '0' : '') + n; }
   function tiranaNow(){ try{ return new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Tirane'})); }catch(e){ return new Date(); } }
   var BLOCKS = {
-    lajme: {name:'Lajmet e ditës', videos:['HS99myVwloA','oYg9SRygiPE','fyjy4uzo98Y','SzVxfA4LjBg','Wa2RMb814rg']},
-    lajmeFinal: {name:'Lajmet e ditës — edicioni final', videos:['HS99myVwloA','oYg9SRygiPE','fyjy4uzo98Y','SzVxfA4LjBg','Wa2RMb814rg']},
-    sport: {name:'Sporti', videos:['eWeZS3QXg_c','sH2n4odt-sw','uXTKwi5oBkY','f6B5jbktRJY','kXvHYNjOl8s','wCHoF962DZU']},
+    lajme: {name:'Lajmet e ditës', videos:['ITd1ONhSxCQ','KJt1U3Mz2aU','aYzY582o8Dw','GInSV6GveHo','Z2eSm_NwYT8']},
+    lajmeFinal: {name:'Lajmet e ditës — edicioni final', videos:['ITd1ONhSxCQ','KJt1U3Mz2aU','aYzY582o8Dw','GInSV6GveHo','Z2eSm_NwYT8']},
+    sport: {name:'Sporti', videos:['9wvtmr3VaWY','eWeZS3QXg_c','f6B5jbktRJY','sH2n4odt-sw','uXTKwi5oBkY']},
     dok: {name:'Dokumentarë', videos:['qm2hQXUih8k','EKpgni51-tc','H09G6HytHBk','IonOUbgx7Yg','pkKOBWd4wwM','wweKEd9qYeM','SBQXXwqpN_c','pdVHBkppdIo','AkvIWCWb94o','-wiEv3CJH54']},
-    ekonomi: {name:'Ekonomi', videos:['Mixs3dF9ko0','teakmLAyyf4','3qk2qW3JinQ','Jv-4NFyBlDc','a5JRtLVDfSQ']},
-    mengjes: {name:'Emisioni i mëngjesit', videos:['TLoJQVwA8zw','FpTx49kfANQ','_jB_q_CG8xg','Fl6yTKkJo_0','HVgZOwtj7Ek']},
+    ekonomi: {name:'Ekonomi', videos:['d9c3y1ZYKmI','3qk2qW3JinQ','FepuHunWaGI','Mixs3dF9ko0','teakmLAyyf4']},
+    mengjes: {name:'Emisioni i mëngjesit', videos:['Rw-8K8GMdKM','HMZq9dOvPZs','tH6fVKaTcqU','TLoJQVwA8zw','FpTx49kfANQ']},
     nate: {name:'Filma dhe koncerte shqiptare', videos:['3OGpbg-_HQU','wAFHBHXUzWE','oAOCneBH7M4','DZvBKgtU4ZI','C6gaD40RNRs','d2X6e38bI4w','pGWhimznPWg','e67Qtn_3hkc','SQWEnMonpTo','cal1RfsmHUI','jQCRlnwQJVY','d7NLG3IfowQ','JQsr_JLAiq0','lPWgHfQXYTc','3QuamU0QjDM','gNHr2-JjKRM','ufeJbTNq-BI','dlpxXcC8nPk','hC0_slH0bO4','Wjmwq_bDzPQ','Fso81Ypg9T4','l_Ozo1xUgbU','di8GMmulXXQ']}
   };
   function blockFor(d){
