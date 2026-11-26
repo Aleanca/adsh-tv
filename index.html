@@ -461,12 +461,12 @@ body.tv-full .tv-set .tv-neck, body.tv-full .tv-set .tv-base, body.tv-full .tv-c
   <span class="t-label"><i aria-hidden="true"></i>Të fundit</span>
   <div class="ticker-viewport">
     <div class="ticker-track" id="tickerTrack">
-      <span><b>SPIROPALI</b> — Konferencë për shtyp: Përjashtimin nga grupi i PS-së po e marr si dekoratë — gati të garoj për kryetare •</span>
-      <span><b>INVESTIME</b> — Konferenca BE-Ballkani Perëndimor në Tiranë — mbi 600 investitorë nga Europa dhe rajoni •</span>
-      <span><b>BRUKSEL</b> — Rama në Samitin BE-Ballkani Perëndimor — Serbia mungon për herë të dytë •</span>
-      <span><b>TIRANË</b> — Veliaj: Nga viti 2027 çerdhet dhe kopshtet do të jenë falas •</span>
-      <span><b>PROTESTA</b> — Berisha thirrje shqiptarëve t'i bashkohen protestës kombëtare të 28 Nëntorit •</span>
-      <span><b>PRISHTINË</b> — Protestë kundër femicidit — kërkohet shpallja e urgjencës kombëtare •</span>
+      <span><b>SAMITI BE</b> — Von der Leyen: Ecuria e Shqipërisë mbresëlënëse — Rama: Presim dritën jeshile •</span>
+      <span><b>PROTESTA</b> — Berisha: 28 Nëntori është ditë kushtrimi — PD, 28 amendamente në Kuvend për buxhetin •</span>
+      <span><b>SPIROPALI</b> — S'pati votim në Asamble, përjashtimi nul — Të hapet gara për kreun e PS •</span>
+      <span><b>SPAK</b> — Zbulohen porositë e Wendt për SPAK dhe BKH: Ndiqni provat dhe paratë, askush mbi ligjin •</span>
+      <span><b>LONDËR</b> — Burg për grabitësit shqiptarë të rezidencës së princit William •</span>
+      <span><b>MEDIAT</b> — Shantazhi i portaleve — Business Matters: Presionet ndaj bizneseve, pasoja të rënda •</span>
     </div>
   </div>
 </div>
@@ -1850,13 +1850,13 @@ body.tv-full .tv-set .tv-neck, body.tv-full .tv-set .tv-base, body.tv-full .tv-c
   function pad(n){ return (n < 10 ? '0' : '') + n; }
   function tiranaNow(){ try{ return new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Tirane'})); }catch(e){ return new Date(); } }
   var BLOCKS = {
-    lajme: {name:'Lajmet e ditës', videos:['ITd1ONhSxCQ','KJt1U3Mz2aU','aYzY582o8Dw','GInSV6GveHo','Z2eSm_NwYT8']},
-    lajmeFinal: {name:'Lajmet e ditës — edicioni final', videos:['ITd1ONhSxCQ','KJt1U3Mz2aU','aYzY582o8Dw','GInSV6GveHo','Z2eSm_NwYT8']},
-    sport: {name:'Sporti', videos:['9wvtmr3VaWY','eWeZS3QXg_c','f6B5jbktRJY','sH2n4odt-sw','uXTKwi5oBkY']},
-    dok: {name:'Dokumentarë', videos:['qm2hQXUih8k','EKpgni51-tc','H09G6HytHBk','IonOUbgx7Yg','pkKOBWd4wwM','wweKEd9qYeM','SBQXXwqpN_c','pdVHBkppdIo','AkvIWCWb94o','-wiEv3CJH54']},
-    ekonomi: {name:'Ekonomi', videos:['d9c3y1ZYKmI','3qk2qW3JinQ','FepuHunWaGI','Mixs3dF9ko0','teakmLAyyf4']},
-    mengjes: {name:'Emisioni i mëngjesit', videos:['Rw-8K8GMdKM','HMZq9dOvPZs','tH6fVKaTcqU','TLoJQVwA8zw','FpTx49kfANQ']},
-    nate: {name:'Filma dhe koncerte shqiptare', videos:['3OGpbg-_HQU','wAFHBHXUzWE','oAOCneBH7M4','DZvBKgtU4ZI','C6gaD40RNRs','d2X6e38bI4w','pGWhimznPWg','e67Qtn_3hkc','SQWEnMonpTo','cal1RfsmHUI','jQCRlnwQJVY','d7NLG3IfowQ','JQsr_JLAiq0','lPWgHfQXYTc','3QuamU0QjDM','gNHr2-JjKRM','ufeJbTNq-BI','dlpxXcC8nPk','hC0_slH0bO4','Wjmwq_bDzPQ','Fso81Ypg9T4','l_Ozo1xUgbU','di8GMmulXXQ']}
+    lajme: {name:'Lajmet e ditës', videos:['u7JcEaXsg60','yHDk8tqKccE','8Y_ptAIsugM','OWPOjkiBDHc','wB4d3UdihCQ']},
+    lajmeFinal: {name:'Lajmet e ditës — edicioni final', videos:['u7JcEaXsg60','yHDk8tqKccE','8Y_ptAIsugM','OWPOjkiBDHc','wB4d3UdihCQ']},
+    sport: {name:'Sporti', videos:['y-QuOl0ltWo','E7ZMiDWgMng','eWeZS3QXg_c','f6B5jbktRJY','sH2n4odt-sw','uXTKwi5oBkY']},
+    dok: {name:'Dokumentarë', videos:['DsItXRUqAyk','oUtk9Q00QbM','qm2hQXUih8k','EKpgni51-tc','H09G6HytHBk','IonOUbgx7Yg','pkKOBWd4wwM','wweKEd9qYeM','SBQXXwqpN_c','pdVHBkppdIo']},
+    ekonomi: {name:'Ekonomi', videos:['1JjMQJbHe2M','V_rAfD1hyKI','KqnU0ARwVKA','Mixs3dF9ko0','teakmLAyyf4']},
+    mengjes: {name:'Emisioni i mëngjesit', videos:['h5vNqpPBLfE','TLoJQVwA8zw','FpTx49kfANQ','pd-GlU6ayv0','Fl6yTKkJo_0']},
+    nate: {name:'Filma dhe koncerte shqiptare', videos:['gKiWSvAjNG0','o9WWeKSbtAo','MMD7RVEPAqU','9ZV4Q3MySAw','36W-ZJo9az4','3OGpbg-_HQU','wAFHBHXUzWE','oAOCneBH7M4','DZvBKgtU4ZI','C6gaD40RNRs','d2X6e38bI4w','pGWhimznPWg','e67Qtn_3hkc','SQWEnMonpTo','cal1RfsmHUI','jQCRlnwQJVY','d7NLG3IfowQ','JQsr_JLAiq0','lPWgHfQXYTc','3QuamU0QjDM','gNHr2-JjKRM','ufeJbTNq-BI','dlpxXcC8nPk']}
   };
   function blockFor(d){
     var h = d.getHours();
