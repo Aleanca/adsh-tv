@@ -461,12 +461,12 @@ body.tv-full .tv-set .tv-neck, body.tv-full .tv-set .tv-base, body.tv-full .tv-c
   <span class="t-label"><i aria-hidden="true"></i>Të fundit</span>
   <div class="ticker-viewport">
     <div class="ticker-track" id="tickerTrack">
-      <span><b>SAMITI BE</b> — Von der Leyen: Ecuria e Shqipërisë mbresëlënëse — Rama: Presim dritën jeshile •</span>
-      <span><b>PROTESTA</b> — Berisha: 28 Nëntori është ditë kushtrimi — PD, 28 amendamente në Kuvend për buxhetin •</span>
-      <span><b>SPIROPALI</b> — S'pati votim në Asamble, përjashtimi nul — Të hapet gara për kreun e PS •</span>
-      <span><b>SPAK</b> — Zbulohen porositë e Wendt për SPAK dhe BKH: Ndiqni provat dhe paratë, askush mbi ligjin •</span>
-      <span><b>LONDËR</b> — Burg për grabitësit shqiptarë të rezidencës së princit William •</span>
-      <span><b>MEDIAT</b> — Shantazhi i portaleve — Business Matters: Presionet ndaj bizneseve, pasoja të rënda •</span>
+      <span><b>KUVENDI</b> — Votohet Buxheti 2027 dhe Paketa Fiskale — Përplasje Balla–Shehaj në seancë •</span>
+      <span><b>TIRANË</b> — Marta Kos në Tiranë — Konferenca e Investimeve BE–Ballkani Perëndimor me mbi 600 investitorë •</span>
+      <span><b>GJKKO</b> — Dënohet nëna e Monika Kryemadhit — Fatime Kryemadhi 2 vjet burg, pezulluar •</span>
+      <span><b>MOTI</b> — Moti i keq pezullon lundrimet në porte — Dëborë në aksin Bogë–Qafë Thorë–Theth •</span>
+      <span><b>PROTESTA</b> — Mobilizim për protestën e 28 Nëntorit në Tiranë •</span>
+      <span><b>SPORT</b> — Egnatia kërkon fitoren e parë europiane — Sonte 18:45 ndaj Lincoln në “Air Albania” •</span>
     </div>
   </div>
 </div>
@@ -1850,12 +1850,12 @@ body.tv-full .tv-set .tv-neck, body.tv-full .tv-set .tv-base, body.tv-full .tv-c
   function pad(n){ return (n < 10 ? '0' : '') + n; }
   function tiranaNow(){ try{ return new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Tirane'})); }catch(e){ return new Date(); } }
   var BLOCKS = {
-    lajme: {name:'Lajmet e ditës', videos:['u7JcEaXsg60','yHDk8tqKccE','8Y_ptAIsugM','OWPOjkiBDHc','wB4d3UdihCQ']},
-    lajmeFinal: {name:'Lajmet e ditës — edicioni final', videos:['u7JcEaXsg60','yHDk8tqKccE','8Y_ptAIsugM','OWPOjkiBDHc','wB4d3UdihCQ']},
-    sport: {name:'Sporti', videos:['y-QuOl0ltWo','E7ZMiDWgMng','eWeZS3QXg_c','f6B5jbktRJY','sH2n4odt-sw','uXTKwi5oBkY']},
+    lajme: {name:'Lajmet e ditës', videos:['dJHslPoP7GE','XtTS1aWTE48','bzbtJqDIEjM','YYmfO_1Dv38','s--bLrdMam0']},
+    lajmeFinal: {name:'Lajmet e ditës — edicioni final', videos:['dJHslPoP7GE','XtTS1aWTE48','bzbtJqDIEjM','YYmfO_1Dv38','s--bLrdMam0']},
+    sport: {name:'Sporti', videos:['l5-ckb2sxL0','y-QuOl0ltWo','E7ZMiDWgMng','eWeZS3QXg_c']},
     dok: {name:'Dokumentarë', videos:['DsItXRUqAyk','oUtk9Q00QbM','qm2hQXUih8k','EKpgni51-tc','H09G6HytHBk','IonOUbgx7Yg','pkKOBWd4wwM','wweKEd9qYeM','SBQXXwqpN_c','pdVHBkppdIo']},
-    ekonomi: {name:'Ekonomi', videos:['1JjMQJbHe2M','V_rAfD1hyKI','KqnU0ARwVKA','Mixs3dF9ko0','teakmLAyyf4']},
-    mengjes: {name:'Emisioni i mëngjesit', videos:['h5vNqpPBLfE','TLoJQVwA8zw','FpTx49kfANQ','pd-GlU6ayv0','Fl6yTKkJo_0']},
+    ekonomi: {name:'Ekonomi', videos:['JdTNWNRztWo','d9c3y1ZYKmI','3qk2qW3JinQ','1JjMQJbHe2M','V_rAfD1hyKI']},
+    mengjes: {name:'Emisioni i mëngjesit', videos:['ylYxRPCRSoA','95OtetsOZr0','FLjCsSoLzdI','h5vNqpPBLfE','FpTx49kfANQ']},
     nate: {name:'Filma dhe koncerte shqiptare', videos:['gKiWSvAjNG0','o9WWeKSbtAo','MMD7RVEPAqU','9ZV4Q3MySAw','36W-ZJo9az4','3OGpbg-_HQU','wAFHBHXUzWE','oAOCneBH7M4','DZvBKgtU4ZI','C6gaD40RNRs','d2X6e38bI4w','pGWhimznPWg','e67Qtn_3hkc','SQWEnMonpTo','cal1RfsmHUI','jQCRlnwQJVY','d7NLG3IfowQ','JQsr_JLAiq0','lPWgHfQXYTc','3QuamU0QjDM','gNHr2-JjKRM','ufeJbTNq-BI','dlpxXcC8nPk']}
   };
   function blockFor(d){
